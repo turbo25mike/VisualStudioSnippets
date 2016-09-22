@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Property Binding Creator</Title>
+      <Author>turbo25mike</Author>
+      <Description>Creates a private and public property with OnPropertyChanged for Binding.</Description>
+      <Shortcut>propj</Shortcut>
+      <SnippetTypes>
+                <SnippetType>Expansion</SnippetType>
+            </SnippetTypes>
+    </Header>
+    <Snippet>
+      <Declarations>
+        <Literal>
+          <ID>Type</ID>
+          <ToolTip>Replace with property type.</ToolTip>
+          <Default>String</Default>
+        </Literal>
+        <Literal>
+          <ID>Name</ID>
+          <ToolTip>Replace with property name.</ToolTip>
+          <Default>PropJName</Default>
+        </Literal>
+      </Declarations>
+      <Code Language="CSharp" Kind="any">
+        <![CDATA[
+        private $Type$ _$Name$;
+        public $Type$ $Name$
+        {
+            get
+            {
+                return _$Name$;
+            }
+            set
+            {
+                if (!_$Name$.Equals(value))
+                {
+                    _$Name$ = value;
+                    OnPropertyChanged(nameof($Name$));
+                }
+            }
+        }
+        ]]>
+      </Code>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
